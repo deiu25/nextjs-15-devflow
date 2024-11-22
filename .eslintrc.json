@@ -1,38 +1,64 @@
 {
-    "extends": [
-      "next/core-web-vitals",
-      "next/typescript",
-      "standard",
-      "plugin:tailwindcss/recommended",
-      "prettier"
-    ],
-    "plugins": ["import"],
-    "rules": {
-      "import/order": [
-        "error",
-        {
-          "groups": [
-            "builtin",
-            "external",
-            "internal",
-            ["parent", "sibling"],
-            "index",
-            "object"
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "next/core-web-vitals",
+    "plugin:tailwindcss/recommended",
+    "prettier"
+  ],
+  "plugins": [
+    "@typescript-eslint",
+    "tailwindcss"
+  ],
+  "rules": {
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          [
+            "parent",
+            "sibling"
           ],
-          "newlines-between": "always",
-          "pathGroups": [
-            {
-              "pattern": "@app/**",
-              "group": "external",
-              "position": "after"
-            }
-          ],
-          "pathGroupsExcludedImportTypes": ["builtin"],
-          "alphabetize": {
-            "order": "asc",
-            "caseInsensitive": true
+          "index",
+          "object"
+        ],
+        "newlines-between": "always",
+        "pathGroups": [
+          {
+            "pattern": "@app/**",
+            "group": "external",
+            "position": "after"
           }
+        ],
+        "pathGroupsExcludedImportTypes": [
+          "builtin"
+        ],
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
         }
-      ]
+      }
+    ],
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "tailwindcss/classnames-order": "off"
+  },
+  "overrides": [
+    {
+      "files": [
+        "*.ts",
+        "*.tsx"
+      ],
+      "rules": {
+        "no-undef": "off"
+      }
     }
-  }
+  ]
+}
