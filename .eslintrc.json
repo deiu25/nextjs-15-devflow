@@ -1,15 +1,12 @@
 {
   "extends": [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
     "next/core-web-vitals",
+    "next/typescript",
+    "standard",
     "plugin:tailwindcss/recommended",
     "prettier"
   ],
-  "plugins": [
-    "@typescript-eslint",
-    "tailwindcss"
-  ],
+  "plugins": ["import"],
   "rules": {
     "import/order": [
       "error",
@@ -18,10 +15,7 @@
           "builtin",
           "external",
           "internal",
-          [
-            "parent",
-            "sibling"
-          ],
+          ["parent", "sibling"],
           "index",
           "object"
         ],
@@ -33,29 +27,17 @@
             "position": "after"
           }
         ],
-        "pathGroupsExcludedImportTypes": [
-          "builtin"
-        ],
+        "pathGroupsExcludedImportTypes": ["builtin"],
         "alphabetize": {
           "order": "asc",
           "caseInsensitive": true
         }
       }
-    ],
-    "@typescript-eslint/no-unused-vars": [
-      "error",
-      {
-        "argsIgnorePattern": "^_"
-      }
-    ],
-    "tailwindcss/classnames-order": "off"
+    ]
   },
   "overrides": [
     {
-      "files": [
-        "*.ts",
-        "*.tsx"
-      ],
+      "files": ["*.ts", "*.tsx"],
       "rules": {
         "no-undef": "off"
       }
