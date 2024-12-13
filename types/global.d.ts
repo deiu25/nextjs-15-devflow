@@ -41,4 +41,12 @@ interface Tag {
   interface RouteParams {
     params: Promise<Record<string, string>>;
     searchParams: Promise<Record<string, string>>;
-  }1
+  }
+  
+  interface PaginatedSearchParams {
+    page?: number;
+    pageSize?: number;
+    query?: string;
+    filter?: string;
+    sort?: string;
+  }
