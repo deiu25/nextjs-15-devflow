@@ -1,15 +1,15 @@
 interface Tag {
     _id: string;
     name: string;
-}
-
-interface Author {
+  }
+  
+  interface Author {
     _id: string;
     name: string;
     image: string;
-}
-
-interface Question {
+  }
+  
+  interface Question {
     _id: string;
     title: string;
     tags: Tag[];
@@ -19,20 +19,25 @@ interface Question {
     answers: number;
     views: number;
     createdAt: Date;
-}
-
-type ActionResponse<T = null> = {
+  }
+  
+  type ActionResponse<T = null> = {
     success: boolean;
     data?: T;
     error?: {
-        message: string;
-        details?: Record<string, string[]>;
+      message: string;
+      details?: Record<string, string[]>;
     };
     status?: number;
-};
-
-type SuccessResponse<T = null> = ActionResponse<T> & { success: true };
-type ErrorResponse = ActionResponse<undefined> & { success: false };
-
-type APIErrorResponse = NextResponse<ErrorResponse>;
-type APIResponse<T = null> = NextResponse<SuccessResponse<T> | ErrorResponse>;
+  };
+  
+  type SuccessResponse<T = null> = ActionResponse<T> & { success: true };
+  type ErrorResponse = ActionResponse<undefined> & { success: false };
+  
+  type APIErrorResponse = NextResponse<ErrorResponse>;
+  type APIResponse<T = null> = NextResponse<SuccessResponse<T> | ErrorResponse>;
+  
+  interface RouteParams {
+    params: Promise<Record<string, string>>;
+    searchParams: Promise<Record<string, string>>;
+  }1
